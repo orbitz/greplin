@@ -28,7 +28,7 @@ let is_reverse ls = ls = List.rev ls;;
 
 let sorted = ls
   |> every_substr
-  |> Seq.filter is_reverse
+  |> Seq.filter ~f:is_reverse
   |> Seq.to_list
   |> List.sort ~cmp:(fun x y -> List.length y - List.length x);;
 

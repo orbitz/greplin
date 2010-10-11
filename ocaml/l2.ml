@@ -31,7 +31,7 @@ let is_prime n =
   else
     is_prime' 3;;
 
-let v = fib () |> Seq.filter (fun n -> n > 227_000) |> Seq.filter is_prime |> Seq.take 1 |> Seq.to_list;;
+let v = fib () |> Seq.filter ~f:(fun n -> n > 227_000) |> Seq.filter ~f:is_prime |> Seq.take 1 |> Seq.to_list;;
 let v = 514_229 + 1;;
 
 let rec seq_n start = [< 'start; seq_n (start + 1) >];;
@@ -47,7 +47,7 @@ let rec prime_factors n =
     in
     seq_n 2
     |> Seq.take (int_of_float (sqrt (float n)))
-    |> Seq.filter (fun x -> n mod x = 0)
+    |> Seq.filter ~f:(fun x -> n mod x = 0)
     |> pf;;
 
 let pd = prime_factors v |> Seq.to_list;;

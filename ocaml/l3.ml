@@ -26,9 +26,9 @@ let numbers_ss = all_subsets numbers;;
 let series =
   numbers_ss
   |> Seq.of_list
-  |> Seq.filter (function | [] -> false | [_] -> false | _ -> true)
-  |> Seq.map (fun x -> List.fold_left ~f:(+) ~init:0 x)
-  |> Seq.filter (fun x -> List.mem x numbers)
+  |> Seq.filter ~f:(function | [] -> false | [_] -> false | _ -> true)
+  |> Seq.map ~f:(fun x -> List.fold_left ~f:(+) ~init:0 x)
+  |> Seq.filter ~f:(fun x -> List.mem x numbers)
   |> Seq.to_list;;
 
 let total = List.length series;;
