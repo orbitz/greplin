@@ -7,8 +7,8 @@
 
 open Core_extended.Std;;
 open Core_extended.Function;;
-
-let (|>) d f = f d;;
+open Ort.Function;;
+open Ort;;
 
 let fib () = 
   let rec fib' x y = [< 'x + y; fib' y (x + y) >] in

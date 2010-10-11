@@ -7,8 +7,8 @@
 
 open Core_extended.Std;;
 open Core_extended.Function;;
-
-let (|>) d f = f d;;
+open Ort.Function;;
+open Ort;;
 
 let numbers = [3; 4; 9; 14; 15; 19; 28; 37; 47; 50; 54; 56; 59; 61; 70; 73; 78; 81; 92; 95; 97; 99];;
 
